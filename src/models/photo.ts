@@ -1,10 +1,10 @@
-export interface ImgurResponse {
+export interface AlbumResponse {
  data: Album;
  success: boolean;
- statue: number;
+ status: number;
 }
 
-export interface Album {
+interface Album {
   id: string;
   title: string | undefined;
   description: string | undefined;
