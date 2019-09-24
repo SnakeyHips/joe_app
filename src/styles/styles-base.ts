@@ -49,7 +49,7 @@ const useStylesBase = makeStyles((theme: Theme) =>
     },
     photo: {
       borderRadius: 4,
-      maxHeight: 800,
+      maxHeight: 520,
       width: "100%"
     }
   })
