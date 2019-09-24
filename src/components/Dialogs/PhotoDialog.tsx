@@ -1,11 +1,11 @@
-import React, { FunctionComponent, useState, useEffect, ChangeEvent } from "react";
+import React, { FunctionComponent, useState, useEffect } from "react";
 import Dialog from "@material-ui/core/Dialog";
 import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
-import DialogTitle from "@material-ui/core/DialogTitle";
 import Button from "@material-ui/core/Button";
 import { Photo } from "../../models/photo";
 import useStylesBase from "../../styles/styles-base";
+import moment from "moment";
 
 interface PhotoDialogProps {
   open: boolean;
@@ -29,8 +29,16 @@ const PhotoDialog: FunctionComponent<PhotoDialogProps> = props => {
       fullWidth={true}
       maxWidth={"lg"}
     >
-      <DialogTitle>{photo.title}</DialogTitle>
       <DialogContent>
+        <img
+          className={classesBase.photoDialog}
+          src={photo.link}
+          alt={photo.title}
+        />
+        <p><i>{photo.description}</i></p>
+        <p className={classesBase.dateText}>
+          {moment(photo.datetime).fromNow()}
+        </p>
       </DialogContent>
       <DialogActions>
         <Button onClick={props.handleClose} color="primary">

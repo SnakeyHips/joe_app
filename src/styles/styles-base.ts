@@ -47,6 +47,10 @@ const useStylesBase = makeStyles((theme: Theme) =>
       color: theme.palette.primary.main
     },
     dialog: {
+      "& .MuiButton-root": {
+        fontFamily: "Times New Roman, Times, serif",
+        textTransform: "lowercase"
+      },
       "& .MuiPaper-elevation24": {
         boxShadow: "none !important"
       }
@@ -54,6 +58,11 @@ const useStylesBase = makeStyles((theme: Theme) =>
     photo: {
       borderRadius: 4,
       width: "100%"
+    },
+    photoDialog: {
+      display: "flex",
+      margin: "auto",
+      maxHeight: 678
     },
     photoItem: {
       margin: theme.spacing(2)
