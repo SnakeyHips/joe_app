@@ -29,6 +29,16 @@ const useStylesBase = makeStyles((theme: Theme) =>
         marginBottom: 8
       }
     },
+    content: {
+      flexGrow: 1
+    },
+    drawer: {
+      width: 240,
+      flexShrink: 0,
+    },
+    drawerPaper: {
+      width: 240,
+    },
     primaryText: {
       color: theme.palette.primary.main
     },

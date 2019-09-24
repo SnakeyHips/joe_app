@@ -1,30 +1,35 @@
 import React, { FunctionComponent } from "react";
-import { Theme, makeStyles } from "@material-ui/core/styles";
+import { Theme } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import TopAppBar from "./TopAppBar";
+import NavList from "./NavList";
 import useStylesBase from "../../styles/styles-base";
-
-const useStyles = makeStyles({
-  content: {
-    flexGrow: 1
-  }
-});
+import Drawer from "@material-ui/core/Drawer";
 
 const Navigation: FunctionComponent = props => {
-  const classes = useStyles();
   const classesBase = useStylesBase();
   const smAndDown = useMediaQuery((theme: Theme) =>
     theme.breakpoints.down("sm")
   );
-  const bottomNav = smAndDown ? <BottomNav /> : undefined;
+  const navigation = smAndDown ? (
+    <TopAppBar />
+  ) : (
+    <Drawer
+      className={classesBase.drawer}
+      variant="permanent"
+      classes={{
+        paper: classesBase.drawerPaper
+      }}
+      anchor="left"
+    >
+      <NavList />
+    </Drawer>
+  );
 
   return (
     <div className={classesBase.base}>
-      <TopAppBar />
-      <main className={classes.content}>
-        {props.children}
-      </main>
-      {bottomNav}
+      {navigation}
+      <main className={classesBase.content}>{props.children}</main>
     </div>
   );
 };
