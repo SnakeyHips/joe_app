@@ -26,7 +26,6 @@ const PhotoDialog: FunctionComponent<PhotoDialogProps> = props => {
       open={props.open}
       onClose={props.handleClose}
       className={classesBase.dialog}
-      disableBackdropClick={true}
       fullWidth={true}
       maxWidth={"lg"}
     >

@@ -8,8 +8,6 @@ import IconButton from "@material-ui/core/IconButton";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
-import LinkButton from "../Layout/LinkButton";
-import logo from "../../assets/stem_green.png";
 import facebooklogo from "../../assets/facebook.svg";
 import instagramlogo from "../../assets/instagram.svg";
 import linkedinlogo from "../../assets/linkedin.svg";
@@ -19,11 +17,8 @@ import useStylesBase from "../../styles/styles-base";
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     appBar: {
-      backgroundColor: "rgba(255, 255, 255, 0.8)",
+      backgroundColor: "rgba(66, 66, 66, 0.8)",
       boxShadow: "none"
-    },
-    logo: {
-      marginRight: theme.spacing(3)
     },
     menuImage: {
       margin: "auto"
@@ -33,11 +28,6 @@ const useStyles = makeStyles((theme: Theme) =>
     }
   })
 );
-
-interface TopAppBarProps {
-  window?: () => Window;
-  children: React.ReactElement;
-}
 
 const TopAppBar: FunctionComponent = props => {
   const classes = useStyles();
@@ -72,13 +62,8 @@ const TopAppBar: FunctionComponent = props => {
       <Toolbar>
         <Grid container alignItems="center">
           <Grid item xs>
-            <Grid container>
-              <img src={logo} height="28" alt="" />
-            </Grid>
-          </Grid>
-          <Grid item xs>
             <Grid container justify="center">
-              <h6>Stem</h6>
+              <h6>joe-g-photo.com</h6>
             </Grid>
           </Grid>
           <Grid item xs>
