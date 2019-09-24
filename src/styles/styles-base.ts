@@ -30,7 +30,10 @@ const useStylesBase = makeStyles((theme: Theme) =>
       }
     },
     content: {
-      flexGrow: 1
+      flexGrow: 1,
+      [theme.breakpoints.down("sm")]: {
+        marginTop: theme.spacing(8)
+      }
     },
     dateText: {
       fontSize: "0.75rem !important"

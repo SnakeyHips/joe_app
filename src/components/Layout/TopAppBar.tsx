@@ -55,7 +55,7 @@ const TopAppBar: FunctionComponent = props => {
             </Grid>
             <Grid item xs>
               <Grid container justify="center">
-                <h6 className={classesBase.primaryText}>joe-g-photo.com</h6>
+                <h6 className={classesBase.primaryText}>joe-g-photo</h6>
               </Grid>
             </Grid>
             <Grid item xs>
