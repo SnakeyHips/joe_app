@@ -7,6 +7,7 @@ import { GetAllPhotos } from "../../services/photo_service";
 import moment from "moment";
 
 const Home: FunctionComponent = props => {
+  const classesBase = useStylesBase();
   const [photos, setPhotos] = useState<Photo[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
 
@@ -31,10 +32,10 @@ const Home: FunctionComponent = props => {
     <>
       {photos.map((photo: Photo) => {
         return (
-          <Grid item md={8} sm={10} xs={12}>
-            <img src={photo.link} alt={photo.title}/>,
-            <p>{photo.description}</p>
-            <p>{moment(photo.datetime).fromNow()}</p>
+          <Grid item md={8} sm={10} xs={12} className={classesBase.photoItem} key={photo.id}>
+            <img className={classesBase.photo} src={photo.link} alt={photo.title}/>
+            <p><i>{photo.description}</i></p>
+            <p className={classesBase.dateText}>{moment(photo.datetime).fromNow()}</p>
           </Grid>
         );
       })}
@@ -43,7 +44,7 @@ const Home: FunctionComponent = props => {
 
   return (
     <div>
-      <Grid container direction="column" justify="center">
+      <Grid container direction="column" justify="center" alignItems="center">
         {content}
       </Grid>
     </div>

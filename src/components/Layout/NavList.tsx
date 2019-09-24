@@ -2,11 +2,13 @@ import React, { FunctionComponent } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
-import ListItemText from "@material-ui/core/ListItemText";
 
 const useStyles = makeStyles({
   list: {
     padding: 0
+  },
+  listText: {
+    fontFamily: "Times New Roman, Times, serif"
   }
 });
 
@@ -23,14 +25,14 @@ const NavList: FunctionComponent = props => {
   return (
     <List className={classes.list}>
       <ListItem button>
-        <ListItemText onClick={() => handleLinkClick(portfolio)}>
+        <div className={classes.listText} onClick={() => handleLinkClick(portfolio)}>
           portfolio
-        </ListItemText>
+        </div>
       </ListItem>
       <ListItem button>
-        <ListItemText onClick={() => handleLinkClick(instagram)}>
+        <div className={classes.listText} onClick={() => handleLinkClick(instagram)}>
           instagram
-        </ListItemText>
+        </div>
       </ListItem>
     </List>
   );

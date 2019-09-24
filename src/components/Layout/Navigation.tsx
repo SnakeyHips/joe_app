@@ -11,6 +11,7 @@ const Navigation: FunctionComponent = props => {
   const smAndDown = useMediaQuery((theme: Theme) =>
     theme.breakpoints.down("sm")
   );
+
   const navigation = smAndDown ? (
     <TopAppBar />
   ) : (
