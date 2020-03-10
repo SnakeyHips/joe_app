@@ -30,19 +30,22 @@ export default function Home() {
   const classes = useStyles();
   const classesBase = useStylesBase();
   const [photos, setPhotos] = useState<Photo[]>([]);
+  const [infPhotos, setInfPhotos] = useState<Photo[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
+  const [page, setPage] = useState<number>(0);
   const [open, setOpen] = useState<boolean>(false);
   const [photo, setPhoto] = useState<Photo>();
 
   useEffect(() => {
     fetchPhotos();
-  }, [photos.length]);
+  }, []);
 
   async function fetchPhotos() {
     setLoading(true);
     const result: Photo[] = await GetAllPhotos();
     if (result) {
       setPhotos(result);
+      setInfPhotos(result);
     }
     setLoading(false);
   }
@@ -56,7 +59,12 @@ export default function Home() {
     setOpen(false);
   }
 
-  const skeleton = <Skeleton className={classes.skeleton} variant="rect" height={582} width={874} />;
+  function handleLoadMore() {
+    setPage(page + 1);
+    setInfPhotos([...photos.slice(0)]);
+  }
+
+  const skeleton = <Skeleton key={0} className={classes.skeleton} variant="rect" height={582} width={874} />;
 
   const content = loading ? (
     <>
@@ -66,10 +74,9 @@ export default function Home() {
     </>
   ) : (
     <InfiniteScroll
-      pageStart={0}
-      loadMore={() => {
-        return false;
-      }}
+      pageStart={page}
+      loadMore={handleLoadMore}
+      hasMore={photos.length < infPhotos.length}
       loader={skeleton}
     >
       {photos.map((photo: Photo) => {
