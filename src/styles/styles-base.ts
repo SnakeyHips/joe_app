@@ -40,11 +40,11 @@ const useStylesBase = makeStyles((theme: Theme) =>
     },
     drawer: {
       width: 180,
-      flexShrink: 0,
+      flexShrink: 0
     },
     drawerPaper: {
       borderRight: "unset",
-      width: 180,
+      width: 180
     },
     primaryText: {
       color: theme.palette.primary.main
@@ -59,7 +59,6 @@ const useStylesBase = makeStyles((theme: Theme) =>
       }
     },
     photo: {
-      borderRadius: 4,
       width: "100%"
     },
     photoDialog: {

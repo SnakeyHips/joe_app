@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useState, MouseEvent } from "react";
+import React, { useState, MouseEvent } from "react";
 import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -22,19 +22,16 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-const TopAppBar: FunctionComponent = props => {
+export default function TopAppBar() {
   const classes = useStyles();
   const classesBase = useStylesBase();
   const [menu, setMenu] = useState<boolean>(false);
 
-  const toggleDrawer = (open: boolean) => (
-    event: React.KeyboardEvent | React.MouseEvent
-  ) => {
+  const toggleDrawer = (open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
     if (
       event &&
       event.type === "keydown" &&
-      ((event as React.KeyboardEvent).key === "Tab" ||
-        (event as React.KeyboardEvent).key === "Shift")
+      ((event as React.KeyboardEvent).key === "Tab" || (event as React.KeyboardEvent).key === "Shift")
     ) {
       return;
     }
@@ -49,7 +46,7 @@ const TopAppBar: FunctionComponent = props => {
             <Grid item xs>
               <Grid container>
                 <IconButton onClick={toggleDrawer(true)}>
-                  <MenuIcon color="primary"/>
+                  <MenuIcon color="primary" />
                 </IconButton>
               </Grid>
             </Grid>
@@ -78,6 +75,4 @@ const TopAppBar: FunctionComponent = props => {
       </SwipeableDrawer>
     </div>
   );
-};
-
-export default TopAppBar;
+}

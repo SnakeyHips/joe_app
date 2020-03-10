@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from "react";
+import React, { ReactNode } from "react";
 import { Theme } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import TopAppBar from "./TopAppBar";
@@ -6,11 +6,13 @@ import NavList from "./NavList";
 import useStylesBase from "../../styles/styles-base";
 import Drawer from "@material-ui/core/Drawer";
 
-const Navigation: FunctionComponent = props => {
+interface NavigationProps {
+  children: ReactNode;
+}
+
+export default function Navigation(props: NavigationProps) {
   const classesBase = useStylesBase();
-  const smAndDown = useMediaQuery((theme: Theme) =>
-    theme.breakpoints.down("sm")
-  );
+  const smAndDown = useMediaQuery((theme: Theme) => theme.breakpoints.down("sm"));
 
   const navigation = smAndDown ? (
     <TopAppBar />
@@ -33,6 +35,4 @@ const Navigation: FunctionComponent = props => {
       <main className={classesBase.content}>{props.children}</main>
     </div>
   );
-};
-
-export default Navigation;
+}

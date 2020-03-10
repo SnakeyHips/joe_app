@@ -9,9 +9,13 @@ const theme = createMuiTheme({
       main: "#BDBDBD"
     },
     background: {
-      default: "#212121"
+      default: "#212121",
+      paper: "#212121"
     },
     type: "dark"
+  },
+  typography: {
+    fontFamily: "Times New Roman, Times, serif"
   }
 });
 
