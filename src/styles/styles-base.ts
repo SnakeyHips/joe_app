@@ -58,16 +58,10 @@ const useStylesBase = makeStyles((theme: Theme) =>
         boxShadow: "none !important"
       }
     },
-    photo: {
-      width: "100%"
-    },
     photoDialog: {
       display: "flex",
       margin: "auto",
       maxHeight: 678
-    },
-    photoItem: {
-      margin: theme.spacing(2)
     }
   })
 );

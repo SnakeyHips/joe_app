@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Skeleton from "@material-ui/lab/Skeleton";
 import useStylesBase from "../../styles/styles-base";
@@ -8,7 +9,25 @@ import PhotoDialog from "../Dialogs/PhotoDialog";
 import InfiniteScroll from "react-infinite-scroller";
 import moment from "moment";
 
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    skeleton: {
+      marginTop: theme.spacing(2),
+      marginBotton: theme.spacing(2)
+    },
+    photo: {
+      width: "100%"
+    },
+    photoItem: {
+      margin: "auto",
+      marginTop: theme.spacing(2),
+      marginBottom: theme.spacing(2)
+    }
+  })
+);
+
 export default function Home() {
+  const classes = useStyles();
   const classesBase = useStylesBase();
   const [photos, setPhotos] = useState<Photo[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
@@ -37,9 +56,9 @@ export default function Home() {
     setOpen(false);
   }
 
-  const skeleton = <Skeleton variant="rect" height={582} width={"100%"} />;
+  const skeleton = <Skeleton className={classes.skeleton} variant="rect" height={582} width={874} />;
 
-  const content = !loading ? (
+  const content = loading ? (
     <>
       {skeleton}
       {skeleton}
@@ -60,11 +79,11 @@ export default function Home() {
             md={8}
             sm={10}
             xs={12}
-            className={classesBase.photoItem}
+            className={classes.photoItem}
             key={photo.id}
             onClick={() => handleOpen(photo)}
           >
-            <img className={classesBase.photo} src={photo.link} alt={photo.title} />
+            <img className={classes.photo} src={photo.link} alt={photo.title} />
             <p>
               <i>{photo.description}</i>
             </p>
