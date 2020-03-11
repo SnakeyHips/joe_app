@@ -1,5 +1,5 @@
 import React, { useState, MouseEvent } from "react";
-import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
+import { createStyles, Theme, makeStyles, fade } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Grid from "@material-ui/core/Grid";
@@ -13,7 +13,7 @@ import useStylesBase from "../../styles/styles-base";
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     appBar: {
-      backgroundColor: "rgba(66, 66, 66, 0.8)",
+      backgroundColor: fade(theme.palette.background.default, 0.8),
       boxShadow: "none"
     },
     menuButton: {

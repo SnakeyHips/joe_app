@@ -3,16 +3,15 @@ import { createMuiTheme } from "@material-ui/core/styles";
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: "#FAFAFA"
+      main: "#212121"
     },
     secondary: {
       main: "#BDBDBD"
     },
     background: {
-      default: "#212121",
-      paper: "#212121"
-    },
-    type: "dark"
+      default: "#FAFAFA",
+      paper: "#FAFAFA"
+    }
   },
   typography: {
     fontFamily: "Times New Roman, Times, serif"
