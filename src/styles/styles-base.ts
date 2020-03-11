@@ -1,5 +1,7 @@
 import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
 
+const DrawerWidth: number = 180;
+
 const useStylesBase = makeStyles((theme: Theme) =>
   createStyles({
     base: {
@@ -31,20 +33,22 @@ const useStylesBase = makeStyles((theme: Theme) =>
     },
     content: {
       flexGrow: 1,
+      paddingRight: DrawerWidth,
       [theme.breakpoints.down("sm")]: {
-        marginTop: theme.spacing(8)
+        marginTop: theme.spacing(8),
+        paddingRight: 0
       }
     },
     dateText: {
       fontSize: "0.75rem !important"
     },
     drawer: {
-      width: 180,
+      width: DrawerWidth,
       flexShrink: 0
     },
     drawerPaper: {
       borderRight: "unset",
-      width: 180
+      width: DrawerWidth
     },
     primaryText: {
       color: theme.palette.primary.main
