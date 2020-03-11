@@ -75,8 +75,7 @@ export default function Home() {
         return (
           <Grid
             item
-            md={7}
-            sm={10}
+            md={10}
             xs={12}
             className={classes.photoItem}
             key={photo.id + "-" + index}
