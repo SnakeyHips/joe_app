@@ -40,11 +40,11 @@ const useStylesBase = makeStyles((theme: Theme) =>
     },
     drawer: {
       width: 180,
-      flexShrink: 0,
+      flexShrink: 0
     },
     drawerPaper: {
       borderRight: "unset",
-      width: 180,
+      width: 180
     },
     primaryText: {
       color: theme.palette.primary.main
@@ -58,17 +58,10 @@ const useStylesBase = makeStyles((theme: Theme) =>
         boxShadow: "none !important"
       }
     },
-    photo: {
-      borderRadius: 4,
-      width: "100%"
-    },
     photoDialog: {
       display: "flex",
       margin: "auto",
       maxHeight: 678
-    },
-    photoItem: {
-      margin: theme.spacing(2)
     }
   })
 );
