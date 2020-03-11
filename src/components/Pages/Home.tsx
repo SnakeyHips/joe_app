@@ -12,16 +12,14 @@ import moment from "moment";
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     skeleton: {
-      marginTop: theme.spacing(2),
-      marginBotton: theme.spacing(2)
+      padding: theme.spacing(2)
     },
     photo: {
       width: "100%"
     },
     photoItem: {
       margin: "auto",
-      marginTop: theme.spacing(2),
-      marginBottom: theme.spacing(2)
+      padding: theme.spacing(2)
     }
   })
 );
@@ -62,7 +60,7 @@ export default function Home() {
     setPhotos([...photos, ...photos]);
   }
 
-  const skeleton = <Skeleton key={0} className={classes.skeleton} variant="rect" height={582} width={874} />;
+  const skeleton = <Skeleton className={classes.skeleton} variant="rect" height={582} width={874} />;
 
   const content = loading ? (
     <>
@@ -72,7 +70,7 @@ export default function Home() {
     </>
   ) : (
     <InfiniteScroll pageStart={page} loadMore={handleLoadMore} hasMore={photos.length < 50}>
-      {photos.map((photo: Photo) => {
+      {photos.map((photo: Photo, index: number) => {
         return (
           <Grid
             item
@@ -80,7 +78,7 @@ export default function Home() {
             sm={10}
             xs={12}
             className={classes.photoItem}
-            key={photo.id}
+            key={photo.id + "-" + index}
             onClick={() => handleOpen(photo)}
           >
             <img className={classes.photo} src={photo.link} alt={photo.title} />
