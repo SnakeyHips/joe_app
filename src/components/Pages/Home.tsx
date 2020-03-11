@@ -19,7 +19,8 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     photoItem: {
       margin: "auto",
-      padding: theme.spacing(2)
+      marginTop: theme.spacing(1),
+      marginBottom: theme.spacing(2)
     }
   })
 );
@@ -74,7 +75,7 @@ export default function Home() {
         return (
           <Grid
             item
-            md={8}
+            md={7}
             sm={10}
             xs={12}
             className={classes.photoItem}
@@ -93,7 +94,7 @@ export default function Home() {
   );
 
   return (
-    <Grid container direction="column" justify="center" alignItems="center">
+    <Grid container direction="column" justify="center" alignItems="center" className={classesBase.padding}>
       {content}
       {photo && <PhotoDialog open={open} handleClose={handleClose} photo={photo} />}
     </Grid>

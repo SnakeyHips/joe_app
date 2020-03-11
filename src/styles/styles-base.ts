@@ -15,7 +15,8 @@ const useStylesBase = makeStyles((theme: Theme) =>
       "& p": {
         fontSize: "1rem",
         lineHeight: 1.5,
-        letterSpacing: "0.00938em"
+        letterSpacing: "0.00938em",
+        margin: 0
       },
       "& li": {
         fontSize: "1rem",
@@ -66,6 +67,9 @@ const useStylesBase = makeStyles((theme: Theme) =>
       display: "flex",
       margin: "auto",
       maxHeight: 678
+    },
+    padding: {
+      padding: theme.spacing(3)
     }
   })
 );
